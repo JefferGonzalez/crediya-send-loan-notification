@@ -1,0 +1,27 @@
+{
+  "name": "crediya-send-loan-notification",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc",
+    "deploy": "serverless deploy --verbose --aws-profile default",
+    "remove": "serverless remove --aws-profile default"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Jefferson David González Cely",
+    "email": "jeffersongonzalezcely@hotmail.com",
+    "url": "https://jeffer.dev"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@aws-sdk/client-ses": "3.883.0",
+    "@types/aws-lambda": "8.10.152",
+    "@types/node": "24.3.1",
+    "rimraf": "6.0.1",
+    "serverless-dotenv-plugin": "6.0.0",
+    "typescript": "5.9.2"
+  }
+}

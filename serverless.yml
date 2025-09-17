@@ -1,0 +1,21 @@
+service: SendLoanNotification
+
+plugins:
+  - serverless-dotenv-plugin
+
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs22.x
+  architecture: arm64
+
+functions:
+  SendLoanNotification:
+    handler: dist/index.handler
+    name: SendLoanNotification
+    role: ${env:ARN_ROLE}
+    environment:
+      SES_SOURCE_EMAIL: ${env:SES_SOURCE_EMAIL}
+    events:
+      - sqs: ${env:ARN_SQS_QUEUE}
